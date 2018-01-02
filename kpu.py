@@ -915,34 +915,35 @@ def bot(op):
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to, "[Rangers Bots chat] " + "\n" + data['result']['response'].encode('utf-8'))
                                 
-             if 'MENTION' in msg.contentMetadata.keys() != None:
-                 if wait["detectMention"] == True:
-                     contact = cl.getContact(msg.from_)
-                     cName = contact.displayName
-                     balas = ["BeliauNya Lagi Anu "]
-                     ret_ = "[ANU] " + random.choice(balas)
-                     name = re.findall(r'@(\w+)', msg.text)
-                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                     mentionees = mention['MENTIONEES']
-                     for mention in mentionees:
-                           if mention['M'] in Bots:
-                                  cl.sendText(msg.to,ret_ + cName)
-                                  break            
+           if 'MENTION' in msg.contentMetadata.keys() != None:
+               if wait["detectMention"] == True:
+                  contact = cl.getContact(msg.from_)
+                  cName = contact.displayName
+                  balas = ["BeliauNya Lagi Anu "]
+                  ret_ = "[ANU] " + random.choice(balas)
+                  name = re.findall(r'@(\w+)', msg.text)
+                  mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                  mentionees = mention['MENTIONEES']
+                  for mention in mentionees:
+                      if mention['M'] in Bots:
+                          cl.sendText(msg.to,ret_ + cName)
+                          break            
                     
-            if 'MENTION' in msg.contentMetadata.keys() != None:
-                 if wait["kickMention"] == True:
-                     contact = cl.getContact(msg.from_)
-                     cName = contact.displayName
-                     balas = ["Dont Tag Me!! Im Busy",cName + " Ngapain Ngetag?",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja","Fahmi Nya lagi off", cName + " Kenapa Tag saya?","SPAM PC aja " + cName, "Jangan Suka Tag gua " + cName, "Kamu siapa " + cName + "?", "Ada Perlu apa " + cName + "?","Tenggelamkan tuh yang suka tag pake BOT","Tersummon -_-"]
-                     ret_ = "[Auto Respond] " + random.choice(balas)
-                     name = re.findall(r'@(\w+)', msg.text)
-                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                     mentionees = mention['MENTIONEES']
-                     for mention in mentionees:
-                           if mention['M'] in Bots:
-                                  cl.sendText(msg.to,ret_)
-                                  cl.kickoutFromGroup(msg.to,[msg.from_])
-                                  break                     
+          if 'MENTION' in msg.contentMetadata.keys() != None:
+              if wait["kickMention"] == True:
+                 contact = cl.getContact(msg.from_)
+                 cName = contact.displayName
+                 balas = ["Dont Tag Me!! Im Busy",cName + " Ngapain Ngetag?",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja","Fahmi Nya lagi off", cName + " Kenapa Tag saya?","SPAM PC aja " + cName, "Jangan Suka Tag gua " + cName, "Kamu siapa " + cName + "?", "Ada Perlu apa " + cName + "?","Tenggelamkan tuh yang suka tag pake BOT","Tersummon -_-"]
+                 ret_ = "[Auto Respond] " + random.choice(balas)
+                 name = re.findall(r'@(\w+)', msg.text)
+                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                 mentionees = mention['MENTIONEES']
+                 for mention in mentionees:
+                      if mention['M'] in Bots:
+                          cl.sendText(msg.to,ret_)
+                          cl.kickoutFromGroup(msg.to,[msg.from_])
+                          break                      
+
         if op.type == 32:
           if wait["Protectcancel"] == True:
             if op.param2 not in admin:
