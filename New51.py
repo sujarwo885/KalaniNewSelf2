@@ -1278,7 +1278,7 @@ def bot(op):
                     cl.updateGroup(gs)
                     invsend = 0
                     Ticket = cl.reissueGroupTicket(msg.to)
-                    ki.acceptGroupInvitationByTicket(msg.to,Ticket)
+                    kr.acceptGroupInvitationByTicket(msg.to,Ticket)
                     time.sleep(0.2)
                     targets = []
                     for s in gs.members:
@@ -1290,12 +1290,12 @@ def bot(op):
                     else:
                         for target in targets:
                              try:
-                                 ki.kickoutFromGroup(msg.to,[target])
+                                 kr.kickoutFromGroup(msg.to,[target])
                                  print (msg.to,[g.mid])
                              except:
-                                 ki.sendText(msg.to,"Loe gak pantes di sini")
-                                 ki.sendText(msg.to,"Good bye")
-                                 ki.leaveGroup(msg.to)
+                                 kr.sendText(msg.to,"Loe gak pantes di sini")
+                                 kr.sendText(msg.to,"Good bye")
+                                 kr.leaveGroup(msg.to)
                                  gs = cl.getGroup(msg.to)
                         	 gs.preventJoinByTicket = True
                         	 cl.updateGroup(gs)
@@ -1335,8 +1335,8 @@ def bot(op):
                      gs = cl.getGroup(msg.to)
                      gs = ki.getGroup(msg.to)
                      gs = kk.getGroup(msg.to)
-                     gs = kc.getGroup(msg.to)
                      gs = ks.getGroup(msg.to)
+                     gs = kr.getGroup(msg.to)
                      gs = ka.getGroup(msg.to)
                      #cl.sendText(msg.to,"Hello Kk")
                      #cl.sendText(msg.to,"One Piece Team Mau Bersih² Group Sampah Nih")
@@ -1364,7 +1364,7 @@ def bot(op):
                                pass
                              else:
                                try:
-                                 klist=[cl,ki,kk,kc,ks,ka]
+                                 klist=[cl,ki,kk,kr,ks,ka]
                                  kicker=random.choice(klist)
                                  kicker.kickoutFromGroup(msg.to,[target])
                                  print (msg.to,[g.mid])
