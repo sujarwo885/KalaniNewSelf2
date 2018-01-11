@@ -1309,7 +1309,7 @@ def bot(op):
                 cl.updateGroup(gs)
                 invsend = 0
                 Ticket = cl.reissueGroupTicket(msg.to)
-                kk.acceptGroupInvitationByTicket(msg.to,Ticket)
+                kr.acceptGroupInvitationByTicket(msg.to,Ticket)
                 time.sleep(0.2)
                 targets = []
                 key = eval(msg.contentMetadata["MENTION"])
@@ -1829,7 +1829,7 @@ def bot(op):
                      print "[Command]Stalk executed - succes"
                      
             elif "Copy @" in msg.text:
-               if msg.from_ in owner:
+               if msg.from_ in admin:
                  _name = msg.text.replace("Copy @","")
                  _nametarget = _name.rstrip(' ')
                  gs = cl.getGroup(msg.to)
@@ -1940,9 +1940,9 @@ def bot(op):
                 cl.sendText(msg.to, "▒▒▒▓▓▓LOAD...99%")
                 elapsed_time = time.time() - start
                 cl.sendText(msg.to, "%sDetik" % (elapsed_time)) 
-                ki.sendText(msg.to, "%sDetik" % (elapsed_time))
-                kk.sendText(msg.to, "%sDetik" % (elapsed_time))
-                kc.sendText(msg.to, "%sDetik" % (elapsed_time))   
+                #ki.sendText(msg.to, "%sDetik" % (elapsed_time))
+                #kk.sendText(msg.to, "%sDetik" % (elapsed_time))
+                #kc.sendText(msg.to, "%sDetik" % (elapsed_time))   
 #-----------------------------------------------             
         if op.type == 19:
             try:
